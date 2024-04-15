@@ -1,0 +1,56 @@
+[
+  {
+    "name": "ADMIN",
+    "email": "afiq@admin.io",
+    "password": "admin.io",
+    "Balance":"0"
+  },
+  {
+    "name": "SAYAN",
+    "email": "sayan@user.io",
+    "password": "sayan",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  },
+  {
+    "name": "",
+    "email": "@user.io",
+    "password": "",
+    "Balance":"0"
+  }
+]

