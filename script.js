@@ -63,8 +63,8 @@ function displayUserDetails(user) {
 }
 
 function displayUserDetails1(user) {
-  const userDetailsContainer = document.getElementById('user-details1');
-  userDetailsContainer.innerHTML = `
+  const userDetailsContainer1 = document.getElementById('user-details1');
+  userDetailsContainer1.innerHTML = `
       <p><strong>Email:</strong> ${user.email}</p>
       <p><strong>money:</strong> ${user.Balance}</p>
   `;
@@ -88,4 +88,21 @@ function openNewWindow(url) {
   const top = (screen.height - height) / 2;
   const options = `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`;
   window.open(url, '_blank', options);
+}
+
+function simulateLoading() {
+  var loader = document.createElement("div");
+  loader.classList.add("loader");
+  document.body.appendChild(loader);
+
+  // Simulate loading for 3 seconds
+  setTimeout(function() {
+      loader.remove(); // Remove the loader after 3 seconds
+      redirectToProfilePage();
+  }, 3000);
+}
+
+function redirectToProfilePage() {
+  // Redirect to the profile page
+  window.location.href = "profile.html";
 }

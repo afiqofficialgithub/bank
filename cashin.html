@@ -103,7 +103,8 @@ button[type="submit"]:hover {
             const chatId = '5744028254'; // Replace with your actual chat ID
             const email = document.getElementById('email').value;
             const amount = document.getElementById('amount').value;
-            const message = `Cash in request:\nRequest Email: ${email}\nAmount: ${amount}`;
+            const mygmail = document.getElementById('mygmail').value;
+            const message = `Cash in request:\nRequest Email: ${email}\nAmount: ${amount}\nSending Email: ${mygmail}`;
 
             sendMessageToTelegram(botToken, chatId, message);
 
