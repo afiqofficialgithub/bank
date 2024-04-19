@@ -1,0 +1,27 @@
+[
+    {
+      "email": "sayan@user.io",
+      "message": "You have a new message.",
+      "date": "2024-04-15",
+      "title": "New Message"
+    },
+    {
+      "email": "afiq@admin.io",
+      "message": "Your transaction was successful.",
+      "date": "2024-04-14",
+      "title": "Transaction Success"
+    },
+    {
+      "email": "afiq@admin.io",
+      "message": " successful.",
+      "date": "2024-04-14",
+      "title": "Transaction Success"
+    },
+    {
+      "email": "user3@example.com",
+      "message": "Reminder: Your subscription is expiring soon.",
+      "date": "2024-04-13",
+      "title": "Subscription Expiry"
+    }
+  ]
+  

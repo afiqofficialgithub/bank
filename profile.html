@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="styles.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 /* styles.css */
 /* Import Google Font */
@@ -23,7 +23,7 @@
 /* Set up SVG styles */
 svg text {
     animation: stroke 3s infinite alternate;
-    stroke-width: 2;
+    stroke-width: 4;
     stroke: #365FA0;
     font-family: "Ropa Sans", sans-serif;
     font-size: 40px; /* Adjust font size for desktop view */
@@ -217,19 +217,62 @@ a:hover {
      box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.3);
 }
 
+/* Your existing CSS styles */
 
+.notification-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
+.notification-icon img {
+    width: 30px; /* Adjust icon size as needed */
+    height: auto;
+}
+
+.profile-container {
+            position: relative;
+        }
+
+        .notification-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        
+/* Define styles for the notification button */
+#notification-button {
+    padding: 10px 20px; /* Add padding to the button */
+    background-color: #007bff; /* Set background color */
+    color: #fff; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer on hover */
+    font-size: 16px; /* Set font size */
+}
+
+/* Add hover effect */
+#notification-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+        
     </style>
 </head>
 <body>
     
         
     <div class="profile-container">
-            <svg>
-                <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-                    GEOUP MEMBER 
-                </text>
-            </svg>
+        
+            <!-- Your existing profile container content -->
+            <button id="notification-button" class="notification-icon"><i class="fa-solid fa-bell"></i> Notification</button>
+        <svg>
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                GEOUP MEMBER 
+            </text>
+        </svg>
         <h2>User Profile</h2>
         <div id="user-details"></div>
         <div class="button-container">
@@ -237,9 +280,74 @@ a:hover {
             <a href="cashin.html"><button id="cash-in-btn">Cash In</button></a>
             <a href="cashout.html"><button id="cash-out-btn">Cash Out</button></a>
         </div>
-        <a href="index.html" class="logout-btn">Logout</a>
+        <a href="index.html" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        
     </div>
 
     <script src="script.js"></script>
+    <script>
+         // Your existing JavaScript code
+        document.getElementById('notification-button').addEventListener('click', () => {
+            // Get the logged-in user's email
+            const loggedInUserEmail = getLoggedInUserEmail();
+            // Open the notification page with the logged-in user's email as a query parameter
+            window.location.href=`notification.html?email=${loggedInUserEmail}`;
+        });
+        
+        function getLoggedInUserEmail() {
+            const cookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('loggedInUser='));
+            if (cookie) {
+                return cookie.split('=')[1];
+            }
+            return null;
+        }
+    </script>
+</body>
+<body>
+    
+    <script src="script.js"></script>
+    <script>
+        // Your existing JavaScript code
+        // Function to display email-wise notifications
+        function displayEmailWiseNotifications(email) {
+            // Fetch notifications from JSON file
+            fetch('notifications.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Filter notifications by email
+                    const userNotifications = data.filter(notification => notification.email === email);
+                    // Display filtered notifications
+                    userNotifications.forEach(notification => {
+                        const notificationDiv = createNotificationElement(notification);
+                        document.getElementById('notification-container').appendChild(notificationDiv);
+                    });
+                })
+                .catch(error => console.error('Error fetching notifications:', error));
+        }
+
+        // Function to create a notification element
+        function createNotificationElement(notification) {
+            const notificationDiv = document.createElement('div');
+            notificationDiv.classList.add('notification');
+
+            const titleElement = document.createElement('h3');
+            titleElement.textContent = notification.title;
+
+            const messageElement = document.createElement('p');
+            messageElement.textContent = `Date: ${notification.date}, Message: ${notification.message}`;
+
+            notificationDiv.appendChild(titleElement);
+            notificationDiv.appendChild(messageElement);
+
+            return notificationDiv;
+        }
+
+        // Get email parameter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        if (email) {
+            displayEmailWiseNotifications(email);
+        }
+    </script>
 </body>
 </html>

@@ -19,8 +19,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
               // Set cookie to remember login
               const expiry = stayLoggedIn ? ';expires=' + new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString() : '';
               document.cookie = `loggedInUser=${user.email}${expiry};path=/`;
-              // Redirect to profile page or display user details
-              window.location.href = 'profile.html';
+              // Simulate loading and redirect to profile page
+              simulateLoading();
           } else {
               const errorMessage = document.getElementById('error-message');
               errorMessage.textContent = 'Invalid email or password';
@@ -62,14 +62,6 @@ function displayUserDetails(user) {
   `;
 }
 
-function displayUserDetails1(user) {
-  const userDetailsContainer1 = document.getElementById('user-details1');
-  userDetailsContainer1.innerHTML = `
-      <p><strong>Email:</strong> ${user.email}</p>
-      <p><strong>money:</strong> ${user.Balance}</p>
-  `;
-}
-
 // Function to get cookie value
 function getCookie(name) {
   const value = `; ${document.cookie}`;
@@ -77,19 +69,7 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// Event handler for "Transfer Cash" button
-
-
-// Function to open new window with specified HTML file
-function openNewWindow(url) {
-  const width = 500;
-  const height = 300;
-  const left = (screen.width - width) / 2;
-  const top = (screen.height - height) / 2;
-  const options = `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`;
-  window.open(url, '_blank', options);
-}
-
+// Simulate loading function
 function simulateLoading() {
   var loader = document.createElement("div");
   loader.classList.add("loader");
@@ -102,6 +82,7 @@ function simulateLoading() {
   }, 3000);
 }
 
+// Redirect to profile page function
 function redirectToProfilePage() {
   // Redirect to the profile page
   window.location.href = "profile.html";

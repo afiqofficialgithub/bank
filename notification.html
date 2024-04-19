@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications</title>
+<!-- Include any CSS styles here if needed -->
+<style>
+/* Add your CSS styles for notifications here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.notification {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notification h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.notification p {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #666666;
+}
+</style>
+</head>
+<body>
+<!-- Notification content will be dynamically added here -->
+<div id="not">
+
+</div>
+<script>
+const userDetailsContainer = document.getElementById('not');
+// Fetch notifications from JSON file
+fetch("notifications.json")
+    .then((response) => response.json())
+    .then((data) => {
+        displayNotifications(data);
+    })
+    .catch((error) =>
+        console.error("Error fetching notifications:", error)
+    );
+
+function displayEmailWiseNotifications(email) {
+    // Fetch notifications from JSON file
+    fetch("notifications.json")
+        .then((response) => response.json())
+        .then((data) => {
+            // Filter notifications by email
+            const userNotifications = data.filter(
+                (notification) => notification.email === email
+            );
+            // Process notifications as needed (e.g., display in a notification tray)
+            userNotifications.forEach((notification) => {
+                // Create notification element
+                const notificationElement = document.createElement('div');
+                notificationElement.classList.add('notification');
+                // Populate notification content
+                notificationElement.innerHTML = `
+                    <h3>${notification.title}</h3>
+                    <p>${notification.message}</p>
+                `;
+                // Append notification element to container
+                userDetailsContainer.appendChild(notificationElement);
+            });
+        })
+        .catch((error) =>
+            console.error("Error fetching notifications:", error)
+        );
+}
+
+// Get email parameter from URL
+const urlParams = new URLSearchParams(window.location.search);
+const email = urlParams.get("email");
+if (email) {
+    displayEmailWiseNotifications(email);
+}
+</script>
+</body>
+</html>
