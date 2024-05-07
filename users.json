@@ -1,43 +1,43 @@
 [
   {
-    "name": "ADMIN",
+    "name": "ADMIN/AFIQ",
     "email": "afiq@admin.io",
     "password": "admin.io",
-    "Balance":"0"
+    "Balance":"20"
   },
   {
     "name": "SAYAN",
     "email": "sayan@user.io",
     "password": "sayan",
-    "Balance":"0"
+    "Balance":"20"
   },
   {
-    "name": "",
-    "email": "@user.io",
-    "password": "",
-    "Balance":"0"
+    "name": "AHNAF",
+    "email": "ahnaf@user.io",
+    "password": "ahnaf",
+    "Balance":"20"
   },
   {
-    "name": "",
-    "email": "@user.io",
-    "password": "",
-    "Balance":"0"
+    "name": "TANIM",
+    "email": "tanim@user.io",
+    "password": "tanim",
+    "Balance":"10"
   },
   {
-    "name": "",
-    "email": "@user.io",
-    "password": "",
-    "Balance":"0"
+    "name": "RAHAT",
+    "email": "rahat@user.io",
+    "password": "rahat",
+    "Balance":"20"
   },
   {
-    "name": "",
-    "email": "@user.io",
-    "password": "",
-    "Balance":"0"
+    "name": "SIFAT",
+    "email": "sifat@user.io",
+    "password": "sifat",
+    "Balance":"20"
   },
   {
-    "name": "",
-    "email": "@user.io",
+    "name": "GROUP2",
+    "email": "group2@user.io",
     "password": "",
     "Balance":"0"
   },
