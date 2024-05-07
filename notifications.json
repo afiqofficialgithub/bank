@@ -1,26 +1,33 @@
 [
     {
       "email": "sayan@user.io",
-      "message": "sayan@user.io - Active success",
-      "title": "Account Active"
+      "message": "sayan@user.io - 20 Taka Cashin Success",
+      "title": "CASHIN"
     },
     {
       "email": "afiq@admin.io",
-      "message": "Your transaction was successful.",
-      "date": "2024-04-14",
-      "title": "Transaction Success"
+      "message": "afiq@admin.io - 20 Taka Cashin Success",
+      "title": "CASHIN"
     },
     {
-      "email": "afiq@admin.io",
-      "message": " successful.",
-      "date": "2024-04-14",
-      "title": "Transaction Success"
+      "email": "tanim@admin.io",
+      "message": "10 Taka Cashin Success.",
+      "title": "CASHIN"
     },
     {
-      "email": "user3@example.com",
-      "message": "Reminder: Your subscription is expiring soon.",
-      "date": "2024-04-13",
-      "title": "Subscription Expiry"
+      "email": "sifat@admin.io",
+      "message": "20 Taka Cashin Success.",
+      "title": "CASHIN"
+    },
+    {
+      "email": "ahnaf@admin.io",
+      "message": "20 Taka Cashin Success.",
+      "title": "CASHIN"
+    },
+    {
+      "email": "rahat@example.com",
+      "message": "20 Taka Cashin Success.",
+      "title": "Cashin"
     }
   ]
   
